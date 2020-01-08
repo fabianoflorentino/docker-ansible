@@ -1,12 +1,13 @@
-FROM alpine
+FROM python:3.7-alpine
 
-RUN apk add sshpass openssh ansible python py-pip make vim \
-  && adduser --disabled-password --gecos "" ansible
+COPY requirements.txt .
+
+RUN apk add vim make openssh gcc g++ libffi-dev openssl openssl-dev \
+  && adduser --disabled-password --gecos "" ansible \
+  && pip install -r requirements.txt
 
 USER ansible
 
-RUN ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa -C ansible@dev
-
-WORKDIR /home/ansible
+WORKDIR /ansible
 
 ENTRYPOINT [ "sh" ]

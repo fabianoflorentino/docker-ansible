@@ -1,2 +1,5 @@
+.ansible
 .ash_history
 .ansible/
+ssh-keys/ansible*
+.viminfo
