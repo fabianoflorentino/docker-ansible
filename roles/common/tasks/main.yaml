@@ -1,0 +1,26 @@
+---
+
+- name: "Update System"
+  package:
+    state: latest
+    name: "*"
+
+- name: "Install Essential Packages"
+  apt:
+    state: present
+    name: "{{ item }}"
+  loop: "{{ packages.to_install }}"
+
+- name: "Enable Essential Services"
+  apt:
+    state: present
+    name: "{{ item }}"
+  loop: "{{ services.to_enable }}"
+
+- name: "Configure NTP service"
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+    owner: root
+    mode: 0644
+  notify: "Restart NTP service"

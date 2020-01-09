@@ -1,0 +1,7 @@
+---
+
+- name: "Prepare new Server"
+  hosts:
+    - all
+  roles:
+    - {role: common, tags: common}

@@ -12,3 +12,12 @@ run: ## Start Terraform
 
 rm: ## Remove container
 	@docker container rm -f ansible
+
+rmi: ## Remove untagged images
+	@docker rmi -f $(docker images | grep "^<none>" |cut -d" " -f50)
+
+ansible-test: ## Test of ansible roles to apply
+	@ansible-playbook -i inventory/invetory.ini -u supervisor -b -e ssh_connection_user=supervisor setup.yaml -C
+
+ansible-run: ## Test of ansible roles to apply
+	@ansible-playbook -i inventory/invetory.ini -u supervisor -b -e ssh_connection_user=supervisor setup.yaml

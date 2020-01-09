@@ -1,0 +1,23 @@
+---
+
+packages:
+  to_install:
+    - vim
+    - tree
+    - netcat
+    - tcpdump
+    - nmap
+    - ntp
+  to_remove:
+    -
+
+services:
+  to_enable:
+    - ntp
+  to_disable:
+
+ntp_servers:
+  - "server 0.br.pool.ntp.org"
+  - "server 1.br.pool.ntp.org"
+  - "server 2.br.pool.ntp.org"
+  - "server 3.br.pool.ntp.org"
