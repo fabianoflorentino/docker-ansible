@@ -24,3 +24,12 @@
     owner: root
     mode: 0644
   notify: "Restart NTP service"
+
+- name: "Hardening - Kernel Parameters"
+  template:
+    src: 11-hardening.conf.j2
+    dest: /etc/sysctl.d/11-hardening.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: "Apply Kernel Parameters"

@@ -5,3 +5,8 @@
     name: ntp
     state: restarted
     enabled: true
+
+- name: "Apply Kernel Parameters"
+  shell: |
+    sysctl --system
+  register: kernel_parameters

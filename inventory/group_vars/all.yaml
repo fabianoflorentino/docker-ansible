@@ -21,3 +21,15 @@ ntp_servers:
   - "server 1.br.pool.ntp.org"
   - "server 2.br.pool.ntp.org"
   - "server 3.br.pool.ntp.org"
+
+hardening:
+  net_ipv6_conf_all_disable_ipv6: 1
+  net_ipv6_conf_default_disable_ipv6: 1
+  net_ipv6_conf_lo_disable_ipv6: 1
+  net_ipv4_conf_all_accept_source_route: 0
+  ipv4_conf_all_forwarding: 0
+  net_ipv4_conf_all_accept_redirects: 0
+  net_ipv4_conf_all_secure_redirects: 0
+  net_ipv4_conf_all_send_redirects: 0
+  net_ipv4_conf_all_rp_filter: 0
+  net_ipv4_icmp_echo_ignore_all: 0
