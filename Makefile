@@ -4,10 +4,10 @@
 help:
 	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-25s\033[0m %s\n", $$1, $$2, $$3, $$4, $$5}'
 
-build: ## Make image for use terraform
+build: ## Make image for use ansible
 	@docker build --no-cache -t fabianoflorentino/ansible .
 
-run: ## Start Terraform
+run: ## Start ansible
 	@docker run -it --name ansible -v ${PWD}:/ansible --entrypoint "" fabianoflorentino/ansible sh
 
 rm: ## Remove container
